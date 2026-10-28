@@ -1,0 +1,11 @@
+{
+  "file": "C:\\Users\\khatu\\OneDrive\\Attachments\\Desktop\\RevUpTime App\\output\\RevUpTime-1.1.0.apk",
+  "bytes": 116603336,
+  "sha256": "2eb5ced7ef2a9d2e9304897b57277855d6c0f3fcf71049581ac9d7f2d26a0e1c",
+  "embeddedVersion": "1.1.0",
+  "embeddedPackage": "com.revuptime.mobile",
+  "embeddedVersionCode": 11,
+  "zipIntegrity": "passed",
+  "launcherSymbolCount": 4,
+  "entryCount": 1384
+}

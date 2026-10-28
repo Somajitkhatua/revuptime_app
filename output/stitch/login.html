@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=390, height=844, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>RevUpTime - Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #001A30;
+      color: #FFFFFF;
+      overflow-x: hidden;
+      width: 390px;
+      min-height: 844px;
+      height: 844px;
+      position: relative;
+    }
+    .viewport-container {
+      width: 390px;
+      height: 844px;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+      background-color: #001A30;
+    }
+    .bg-photo-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center bottom;
+      z-index: 1;
+    }
+    .bg-overlay-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        180deg, 
+        rgba(0, 26, 48, 0.90) 0%, 
+        rgba(0, 26, 48, 0.82) 45%, 
+        rgba(0, 26, 48, 0.70) 75%, 
+        rgba(0, 26, 48, 0.88) 100%
+      );
+      z-index: 2;
+      backdrop-filter: blur(1.5px);
+    }
+    .content-container {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .top-header-block {
+      position: absolute;
+      top: 96px;
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .form-block {
+      position: absolute;
+      top: 385px;
+      width: 330px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .input-field {
+      width: 330px;
+      height: 54px;
+      background: #FFFFFF;
+      border: 1px solid #D1D5DB;
+      border-radius: 10px;
+      padding: 0 16px;
+      color: #111827;
+      font-size: 15px;
+      font-weight: 400;
+      outline: none;
+      transition: all 0.15s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+    .input-field::placeholder {
+      color: #9CA3AF;
+      font-size: 14.5px;
+    }
+    .input-field:focus {
+      border-color: #0085FF;
+      box-shadow: 0 0 0 3px rgba(0, 133, 255, 0.25), 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .sign-in-btn {
+      width: 330px;
+      height: 54px;
+      background: #0085FF;
+      border-radius: 10px;
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0.2px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.15s ease, transform 0.1s active;
+      box-shadow: 0 4px 16px rgba(0, 133, 255, 0.4);
+    }
+    .sign-in-btn:hover {
+      background: #0077E6;
+    }
+    .sign-in-btn:active {
+      transform: scale(0.99);
+      background: #0068CA;
+    }
+    .custom-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 17px;
+      height: 17px;
+      background-color: #0085FF;
+      border: 1.5px solid #0085FF;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-grid;
+      place-content: center;
+      position: relative;
+    }
+    .custom-checkbox:checked::after {
+      content: "";
+      width: 9px;
+      height: 5px;
+      border-left: 2px solid white;
+      border-bottom: 2px solid white;
+      transform: rotate(-45deg) translate(0.5px, -1px);
+    }
+  </style>
+</head>
+<body>
+  <div class="viewport-container">
+    <!-- Edge-to-edge Industrial Refinery Photograph -->
+    <img 
+      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFOEaiht4WihE5F1sxQpu9MEAQrOsk15DL_vExLD3aRw4yeF_EV2bpm5hjCCRzWJgiEKBuJFjrNjLl3CKNbUVQu_0YwjTznL_TrfjK29Tz2tZ_twDmlQAKE_zwEk8uDoe8DkRagbBYyrjHAsKWTdMBe6AM0ut-mC0j_wfZgefIM64gzNv52Vfpy0zTnVRWocU_XpHzItVH9tR-WmDjrC-skgUqn9HU2Ofv-7wzX7EbV9I_Fqzqiakl_hhoR8G-sOGz0MB8Quul0K2t" 
+      alt="Industrial Refinery Background" 
+      class="bg-photo-layer"
+    />
+    
+    <!-- Heavy Dark Navy #001A30 Overlay -->
+    <div class="bg-overlay-layer"></div>
+
+    <!-- UI Overlay Layer -->
+    <main class="content-container">
+      
+      <!-- Top Branding Section (~y110) -->
+      <section class="top-header-block" aria-label="RevUpTime Brand">
+        <!-- Logo: Circular Machine Health Broken Arrow with Cyan ECG Heartbeat inside -->
+        <div class="relative w-[58px] h-[58px] mb-3 flex items-center justify-center">
+          <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-md">
+            <!-- Circular Broken Ring / Machine Health Arrow -->
+            <path d="M29 6C16.2975 6 6 16.2975 6 29C6 41.7025 16.2975 52 29 52C39.4147 52 48.2046 45.068 51.0544 35.4375" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+            <path d="M51.0544 22.5625C49.8052 18.3377 47.1691 14.6548 43.5519 12.0628" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+            <!-- Arrow tip indicator -->
+            <path d="M53.8 35.8L51.05 32.5L47.5 35.8" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Center Cyan ECG Heartbeat / Pulse -->
+            <path d="M14 29H20.5L23.5 22L27.5 36.5L31.5 20L34.5 32L37.5 27L39.5 29H44" stroke="#1B96FF" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <!-- 40px Brand RevUpTime -->
+        <h1 class="text-[40px] font-extrabold tracking-[-0.03em] leading-none mb-3 select-none flex items-center justify-center">
+          <span class="text-white">Rev</span><span class="text-[#1B96FF]">Up</span><span class="text-white">Time</span>
+        </h1>
+
+        <!-- Subtitle on 3 lines -->
+        <p class="text-[13.5px] leading-[1.42] text-white/95 font-medium tracking-wide max-w-[270px]">
+          AI-Powered<br>
+          Predictive Maintenance<br>
+          for Industrial Assets
+        </p>
+      </section>
+
+      <!-- Form Section: inputs directly over photo at y395 & y462 -->
+      <form class="form-block" onsubmit="event.preventDefault();" aria-label="Sign In Form">
+        <!-- Email Input (at y395 relative to top, height 54px) -->
+        <div class="w-[330px] h-[54px] mb-[13px] relative">
+          <input 
+            type="email" 
+            id="email-input"
+            class="input-field" 
+            placeholder="name@company.com" 
+            autocomplete="email" 
+            required 
+            aria-label="Email Address"
+          />
+        </div>
+
+        <!-- Password Input (at y462 relative to top, height 54px) -->
+        <div class="w-[330px] h-[54px] relative">
+          <input 
+            type="password" 
+            id="password-input"
+            class="input-field pr-12 font-mono placeholder:font-sans" 
+            placeholder="••••••••••••" 
+            autocomplete="current-password" 
+            required 
+            aria-label="Password"
+          />
+          <!-- Eye Icon on Right -->
+          <button 
+            type="button" 
+            id="toggle-password" 
+            class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-800 transition-colors p-1"
+            aria-label="Toggle password visibility"
+            onclick="const p = document.getElementById('password-input'); if(p.type === 'password'){ p.type = 'text'; } else { p.type = 'password'; }"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Under fields: checked bright blue square and Remember me white text aligned left -->
+        <div class="w-[330px] flex items-center justify-start mt-3.5 mb-5 px-0.5">
+          <label class="flex items-center gap-2.5 cursor-pointer select-none">
+            <input 
+              type="checkbox" 
+              class="custom-checkbox" 
+              checked 
+              id="remember-me"
+            />
+            <span class="text-[13.5px] text-white font-medium tracking-normal">Remember me</span>
+          </label>
+        </div>
+
+        <!-- Full-width bright electric blue #0085FF Sign In button (54px high) -->
+        <button 
+          type="submit" 
+          class="sign-in-btn mb-4"
+        >
+          Sign In
+        </button>
+
+        <!-- Forgot Password? centered white below button -->
+        <div class="text-center w-full">
+          <a 
+            href="#forgot-password" 
+            class="text-[13.5px] text-white/90 hover:text-white font-medium underline underline-offset-4 decoration-white/40 hover:decoration-white transition-all inline-block py-1"
+          >
+            Forgot Password?
+          </a>
+        </div>
+      </form>
+
+      <!-- Bottom Atmospheric Area showing refinery piping and lighting with subtle version tag -->
+      <footer class="absolute bottom-5 left-0 right-0 text-center pointer-events-none">
+        <span class="text-[10px] tracking-widest uppercase font-semibold text-white/40">Industrial Telemetry v3.4</span>
+      </footer>
+
+    </main>
+  </div>
+</body>
+</html>

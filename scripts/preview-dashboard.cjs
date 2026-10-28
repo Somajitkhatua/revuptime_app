@@ -1,0 +1,28 @@
+const {chromium}=require('@playwright/test');
+const path=require('path');
+(async()=>{
+ const browser=await chromium.launch({channel:'chrome',headless:true});
+ const page=await browser.newPage({viewport:{width:390,height:844}});
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://localhost:8082/login',{waitUntil:'networkidle'});
+ await page.getByRole('button',{name:'Sign In',exact:true}).click();
+ await page.getByText('Plant Health',{exact:true}).waitFor();
+ await page.waitForTimeout(600);
+ await page.screenshot({path:path.resolve('output/second-page-mobile.png'),fullPage:true});
+ await page.getByRole('button',{name:'Select plant',exact:true}).click();
+ await page.getByText('Jamshedpur Plant',{exact:true}).click();
+ await page.getByText('No active alerts at this plant.',{exact:true}).waitFor();
+ await page.getByRole('button',{name:'Select plant',exact:true}).click();
+ await page.getByText('Rourkela Plant',{exact:true}).last().click();
+ await page.getByRole('button',{name:'Motor M-07: High radial vibration',exact:true}).click();
+ await page.getByText('Alert Detail',{exact:true}).waitFor();
+ await page.goBack();
+ await page.getByRole('button',{name:'WO-2026-0047: Inspect drive-end bearing',exact:true}).click();
+ await page.getByText('Inspection checklist',{exact:true}).waitFor();
+ await page.goBack();
+ await page.setViewportSize({width:1440,height:960});
+ await page.waitForTimeout(400);
+ await page.screenshot({path:path.resolve('output/second-page-desktop.png'),fullPage:true});
+ console.log(JSON.stringify({errors,plantSelection:'passed',alertNavigation:'passed',workOrderNavigation:'passed'}));
+ await browser.close();
+})().catch(e=>{console.error(e);process.exit(1);});

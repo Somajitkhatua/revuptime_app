@@ -1,0 +1,12 @@
+project_id = "revuptime"
+
+[functions.asset-ai]
+# JWTs are validated with auth.getUser inside the handler; supports asymmetric keys.
+verify_jwt = false
+
+[functions.process-document]
+verify_jwt = false
+
+[functions.dispatch-notification]
+# Authenticated by the deployment's private x-webhook-secret, not a user JWT.
+verify_jwt = false

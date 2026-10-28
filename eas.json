@@ -1,0 +1,31 @@
+{
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "environment": "preview",
+      "env": {
+        "EXPO_PUBLIC_RAG_API_URL": "https://app.revuptime.com",
+        "EXPO_PUBLIC_SUPABASE_URL": "https://rdmpjlaffzudjcchkxuh.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY": "sb_publishable_qsEw_evLREwEut4E2hVPdg__uw-Au4R",
+        "EXPO_PUBLIC_BACKEND_SCHEMA": "canonical"
+      }
+    },
+    "production": {
+      "extends": "preview",
+      "distribution": "store",
+      "environment": "production",
+      "android": { "buildType": "app-bundle" },
+      "autoIncrement": true
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

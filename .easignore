@@ -1,0 +1,12 @@
+node_modules/
+.expo/
+dist/
+output/
+test-results/
+playwright-report/
+tests/
+scripts/
+supabase/
+.env*
+*.tsbuildinfo
+DEVELOPMENT_STATUS.md

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RevUpTime Assets List</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0b1928;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    .mobile-container {
+      width: 390px;
+      height: 844px;
+      background-color: #002345;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scroll {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-container select-none">
+    
+    <!-- Top Compact Header (Navy #002345) -->
+    <header class="w-full pt-4 pb-3 px-5 flex items-center justify-between bg-[#002345] shrink-0">
+      <div class="flex items-center gap-2">
+        <h1 class="text-white text-[22px] font-bold tracking-tight">Assets</h1>
+        <span class="text-xs font-semibold text-blue-200/70 bg-[#003366] px-2 py-0.5 rounded-full border border-blue-400/20">5</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <!-- Filter Sliders Button -->
+        <button type="button" class="w-9 h-9 rounded-lg bg-[#003366] hover:bg-[#003d7a] text-blue-100 flex items-center justify-center border border-blue-400/20 transition-colors" aria-label="Filter">
+          <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+          </svg>
+        </button>
+        <!-- Sort Button -->
+        <button type="button" class="w-9 h-9 rounded-lg bg-[#003366] hover:bg-[#003d7a] text-blue-100 flex items-center justify-center border border-blue-400/20 transition-colors" aria-label="Sort">
+          <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Sheet (White / Light Gray with rounded top corners) -->
+    <main class="flex-1 bg-[#F5F7FA] rounded-t-[28px] overflow-hidden flex flex-col relative">
+      
+      <!-- Search & Filters Container (Pinned / non-scrolling) -->
+      <div class="px-4 pt-4 pb-3 bg-[#F5F7FA] shrink-0 border-b border-gray-100">
+        
+        <!-- Subtle Gray Search Field -->
+        <div class="relative w-full mb-3">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+            </svg>
+          </div>
+          <input 
+            type="text" 
+            placeholder="Search assets..." 
+            value=""
+            class="w-full pl-10 pr-4 py-2.5 bg-white text-slate-800 text-[13px] placeholder-slate-400 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#0085FF]/20 focus:border-[#0085FF] transition-all shadow-sm"
+          />
+        </div>
+
+        <!-- Four Horizontal Filter Chips -->
+        <div class="flex items-center gap-2 overflow-x-auto custom-scroll pb-0.5">
+          <!-- All: bright blue #0085FF -->
+          <button type="button" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#0085FF] text-white shadow-sm shrink-0 transition-transform active:scale-95">
+            All <span class="ml-1 opacity-80 text-[11px]">5</span>
+          </button>
+          <!-- Healthy: pale blue-gray -->
+          <button type="button" class="px-3 py-1.5 rounded-full text-xs font-medium bg-[#E8EEF5] text-[#334D6E] hover:bg-[#dfe7f0] shrink-0 transition-colors">
+            Healthy <span class="ml-1 text-[11px] text-emerald-600 font-semibold">3</span>
+          </button>
+          <!-- Warning: pale blue-gray -->
+          <button type="button" class="px-3 py-1.5 rounded-full text-xs font-medium bg-[#E8EEF5] text-[#334D6E] hover:bg-[#dfe7f0] shrink-0 transition-colors">
+            Warning <span class="ml-1 text-[11px] text-amber-600 font-semibold">1</span>
+          </button>
+          <!-- Critical: pale blue-gray -->
+          <button type="button" class="px-3 py-1.5 rounded-full text-xs font-medium bg-[#E8EEF5] text-[#334D6E] hover:bg-[#dfe7f0] shrink-0 transition-colors">
+            Critical <span class="ml-1 text-[11px] text-rose-600 font-semibold">1</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Scrollable Asset Rows List -->
+      <div class="flex-1 overflow-y-auto px-4 py-3 space-y-2.5 custom-scroll pb-20">
+        
+        <!-- Row 1: Motor M-01 -->
+        <div class="w-full h-[82px] bg-white rounded-xl border border-slate-200/90 shadow-sm px-3 flex items-center justify-between hover:shadow transition-shadow cursor-pointer">
+          <div class="flex items-center gap-3 min-w-0">
+            <!-- Machine Thumbnail -->
+            <div class="w-[62px] h-[62px] rounded-lg bg-[#F8FAFC] border border-slate-100 flex items-center justify-center p-1 overflow-hidden shrink-0">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFaAkE0SFmn8DOsy-j-MqqpZxq9XeGOS_ztBdD67kzjV5BqlUApsAuAnaYWdEeXUzpEC_AP9lH081Ng3gK3Ab-JjfjEAtdJZXqzieNDNFKPp-cHo0B937Ln5mtaNFRqzigcXdypsV3jrGYda7rDcODPEK_50KH3TSlWGbaU1yIQvJ7V8LRs1s7_-Ef86bcgz8yxpd00MP59hHHI6dUuwm8lFm_fkWpNkyaeEvH7ENi8tz3Re5OWlBRL1Cdoz1wv73D2uf8Htzqba7o" alt="Motor M-01" class="w-full h-full object-contain" />
+            </div>
+            <!-- Details -->
+            <div class="min-w-0 flex flex-col justify-center">
+              <span class="text-[14px] font-bold text-[#002345] truncate tracking-tight">Motor M-01</span>
+              <span class="text-[12px] text-slate-500 truncate -mt-0.5">Main Conveyor Motor</span>
+              <div class="flex items-center gap-1.5 mt-1">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                <span class="text-[11px] font-semibold text-emerald-600">Healthy</span>
+                <span class="text-[11px] text-slate-400 font-normal">•</span>
+                <span class="text-[11px] font-medium text-slate-600">96%</span>
+              </div>
+            </div>
+          </div>
+          <!-- Chevron -->
+          <div class="text-slate-300 pl-2 shrink-0">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Row 2: Motor M-07 (Attention Emphasis: Light blue tint & thin blue border) -->
+        <div class="w-full h-[82px] bg-[#F0F7FF] rounded-xl border border-[#0085FF]/45 shadow-sm px-3 flex items-center justify-between hover:shadow transition-shadow cursor-pointer relative overflow-hidden">
+          <div class="absolute left-0 top-0 bottom-0 w-1 bg-[#0085FF]"></div>
+          <div class="flex items-center gap-3 min-w-0 pl-1">
+            <!-- Machine Thumbnail -->
+            <div class="w-[62px] h-[62px] rounded-lg bg-white border border-blue-100 flex items-center justify-center p-1 overflow-hidden shrink-0 shadow-xs">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFaAkE0SFmn8DOsy-j-MqqpZxq9XeGOS_ztBdD67kzjV5BqlUApsAuAnaYWdEeXUzpEC_AP9lH081Ng3gK3Ab-JjfjEAtdJZXqzieNDNFKPp-cHo0B937Ln5mtaNFRqzigcXdypsV3jrGYda7rDcODPEK_50KH3TSlWGbaU1yIQvJ7V8LRs1s7_-Ef86bcgz8yxpd00MP59hHHI6dUuwm8lFm_fkWpNkyaeEvH7ENi8tz3Re5OWlBRL1Cdoz1wv73D2uf8Htzqba7o" alt="Motor M-07" class="w-full h-full object-contain" />
+            </div>
+            <!-- Details -->
+            <div class="min-w-0 flex flex-col justify-center">
+              <div class="flex items-center gap-1.5">
+                <span class="text-[14px] font-bold text-[#002345] truncate tracking-tight">Motor M-07</span>
+                <span class="px-1.5 py-0.2 text-[9px] font-bold bg-rose-100 text-rose-700 rounded-sm uppercase tracking-wider">Alert</span>
+              </div>
+              <span class="text-[12px] text-slate-500 truncate -mt-0.5">Cooling Tower Motor</span>
+              <div class="flex items-center gap-1.5 mt-1">
+                <span class="w-2 h-2 rounded-full bg-rose-500 shrink-0 animate-pulse"></span>
+                <span class="text-[11px] font-semibold text-rose-600">Critical</span>
+                <span class="text-[11px] text-slate-400 font-normal">•</span>
+                <span class="text-[11px] font-bold text-rose-600">43%</span>
+              </div>
+            </div>
+          </div>
+          <!-- Chevron -->
+          <div class="text-[#0085FF]/70 pl-2 shrink-0">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Row 3: Pump P-04 -->
+        <div class="w-full h-[82px] bg-white rounded-xl border border-slate-200/90 shadow-sm px-3 flex items-center justify-between hover:shadow transition-shadow cursor-pointer">
+          <div class="flex items-center gap-3 min-w-0">
+            <!-- Machine Thumbnail -->
+            <div class="w-[62px] h-[62px] rounded-lg bg-[#F8FAFC] border border-slate-100 flex items-center justify-center p-1 overflow-hidden shrink-0">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKHZRSGGmFCpkMFLIFl5r1C7_8xhq22590xRAXV9BNAwDIGARAG7WPhVwyNenFq4q-Y8nAUaXdfPR42RgkT6Qjd0sG9U49GrdUoHiAVQL0ty4hYIfmcqQwdjBSl3VmGjSwz2gPNSIRAa6mBVAR4sc-CqFObpY6BxFM0Pz4NPeGDzMn8ns6GBnNzRqHAlYEVmUsyUIw5SVtKedOkFbb5mG9FLv3kA__mUpyNEafR1w4XOfRAlSZyO8Ro6x9-IhVqdtIix-PUyOy3e-O" alt="Pump P-04" class="w-full h-full object-contain" />
+            </div>
+            <!-- Details -->
+            <div class="min-w-0 flex flex-col justify-center">
+              <span class="text-[14px] font-bold text-[#002345] truncate tracking-tight">Pump P-04</span>
+              <span class="text-[12px] text-slate-500 truncate -mt-0.5">Cooling Water Pump</span>
+              <div class="flex items-center gap-1.5 mt-1">
+                <span class="w-2 h-2 rounded-full bg-amber-500 shrink-0"></span>
+                <span class="text-[11px] font-semibold text-amber-600">Warning</span>
+                <span class="text-[11px] text-slate-400 font-normal">•</span>
+                <span class="text-[11px] font-medium text-slate-700">68%</span>
+              </div>
+            </div>
+          </div>
+          <!-- Chevron -->
+          <div class="text-slate-300 pl-2 shrink-0">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Row 4: Fan F-02 -->
+        <div class="w-full h-[82px] bg-white rounded-xl border border-slate-200/90 shadow-sm px-3 flex items-center justify-between hover:shadow transition-shadow cursor-pointer">
+          <div class="flex items-center gap-3 min-w-0">
+            <!-- Machine Thumbnail -->
+            <div class="w-[62px] h-[62px] rounded-lg bg-[#F8FAFC] border border-slate-100 flex items-center justify-center p-1 overflow-hidden shrink-0">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDONqLDn07fgi5iSSMqWgcTb771tjyDzbi-nTo9DZIu7KclN2xaJ0BrlSbdzZPUQ1k6JrIuf8sPr7q9tH6l7VcIQnBVEljFaHj9Ul4LMvI2J9eh52gtZeXmkW450FNiWb9l1qORgohFiSuucbYwUkWoqBt3Ad5BilocFmoGiPsLSG670mwB81naF-wr64gM_IkjEVmKs6NyHEQZblLynI39SLdANYc9yUv7RYA4hyw0TsRkICx7jzOrZ2VWdkQmg-vBOEOIvJf2EXLw" alt="Fan F-02" class="w-full h-full object-contain" />
+            </div>
+            <!-- Details -->
+            <div class="min-w-0 flex flex-col justify-center">
+              <span class="text-[14px] font-bold text-[#002345] truncate tracking-tight">Fan F-02</span>
+              <span class="text-[12px] text-slate-500 truncate -mt-0.5">ID Fan</span>
+              <div class="flex items-center gap-1.5 mt-1">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                <span class="text-[11px] font-semibold text-emerald-600">Healthy</span>
+                <span class="text-[11px] text-slate-400 font-normal">•</span>
+                <span class="text-[11px] font-medium text-slate-600">91%</span>
+              </div>
+            </div>
+          </div>
+          <!-- Chevron -->
+          <div class="text-slate-300 pl-2 shrink-0">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Row 5: Gearbox GB-01 -->
+        <div class="w-full h-[82px] bg-white rounded-xl border border-slate-200/90 shadow-sm px-3 flex items-center justify-between hover:shadow transition-shadow cursor-pointer">
+          <div class="flex items-center gap-3 min-w-0">
+            <!-- Machine Thumbnail -->
+            <div class="w-[62px] h-[62px] rounded-lg bg-[#F8FAFC] border border-slate-100 flex items-center justify-center p-1 overflow-hidden shrink-0">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFdIQx7AW0tcg4T8awFecGbQrUAYpKDKv30fn3il5-XagreTgYvphEw6SkWq9QhOTzDRzh24zX0figmY9B8iC9W7EeTLX5xcKlcFRt-HQdL9-QqqBKNW_ZJnUZl0ezvFxSRjnfzp0deM4OiJFZb8YcQuDyuoJZW3xKC-_iE5L6J0lRzAbeSjfS7e7tMPRPakPx2-97Cyj5ihlGYluLPKzHPWYxAT8HCXQ53VTXeOpX5G0SjZz5OqNtPI--UD4EzRzKYDQ4JFGCBgMY" alt="Gearbox GB-01" class="w-full h-full object-contain" />
+            </div>
+            <!-- Details -->
+            <div class="min-w-0 flex flex-col justify-center">
+              <span class="text-[14px] font-bold text-[#002345] truncate tracking-tight">Gearbox GB-01</span>
+              <span class="text-[12px] text-slate-500 truncate -mt-0.5">Main Drive Gearbox</span>
+              <div class="flex items-center gap-1.5 mt-1">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                <span class="text-[11px] font-semibold text-emerald-600">Healthy</span>
+                <span class="text-[11px] text-slate-400 font-normal">•</span>
+                <span class="text-[11px] font-medium text-slate-600">88%</span>
+              </div>
+            </div>
+          </div>
+          <!-- Chevron -->
+          <div class="text-slate-300 pl-2 shrink-0">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- Fixed Bottom Navigation (Consistent with Plant Dashboard) -->
+    <nav class="w-full h-[62px] bg-white border-t border-slate-200 px-3 flex items-center justify-around shrink-0 z-30">
+      
+      <!-- Home -->
+      <button type="button" class="flex flex-col items-center justify-center flex-1 py-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+        <span class="text-[10px] font-medium tracking-tight">Home</span>
+      </button>
+
+      <!-- Assets (Active: Blue #0085FF) -->
+      <button type="button" class="flex flex-col items-center justify-center flex-1 py-1 text-[#0085FF]">
+        <div class="relative">
+          <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+          </svg>
+          <span class="absolute -top-1 -right-1 w-1.5 h-1.5 rounded-full bg-[#0085FF]"></span>
+        </div>
+        <span class="text-[10px] font-bold tracking-tight">Assets</span>
+      </button>
+
+      <!-- Alerts -->
+      <button type="button" class="flex flex-col items-center justify-center flex-1 py-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <div class="relative">
+          <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+          </svg>
+          <span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-rose-500"></span>
+        </div>
+        <span class="text-[10px] font-medium tracking-tight">Alerts</span>
+      </button>
+
+      <!-- Work Orders -->
+      <button type="button" class="flex flex-col items-center justify-center flex-1 py-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+        </svg>
+        <span class="text-[10px] font-medium tracking-tight">Work Orders</span>
+      </button>
+
+      <!-- AI -->
+      <button type="button" class="flex flex-col items-center justify-center flex-1 py-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+        <span class="text-[10px] font-medium tracking-tight">AI</span>
+      </button>
+
+    </nav>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "id": "83099878-3a0f-46a8-bb3b-939fa95b8692",
+  "status": "FINISHED",
+  "platform": "ANDROID",
+  "artifacts": {
+    "buildUrl": "https://expo.dev/artifacts/eas/Io3Pv-8Ew_7TUNKiVlfO3QpFrbXxHin9h9sloFx5I5c.apk",
+    "applicationArchiveUrl": "https://expo.dev/artifacts/eas/Io3Pv-8Ew_7TUNKiVlfO3QpFrbXxHin9h9sloFx5I5c.apk"
+  },
+  "fingerprint": {
+    "id": "01a12042-177c-73f6-992e-2eab8e3d8b30",
+    "hash": "5cb97fefc332938a18f6b95a811f14608c0e58af"
+  },
+  "initiatingActor": {
+    "id": "d2ae2eb0-5eec-43cb-a9ec-675dfc15a69c",
+    "displayName": "bahu007"
+  },
+  "logFiles": [
+    "https://storage.googleapis.com/eas-workflows-production/logs/3c9ac6f5-b96c-41e5-a24f-21bb04ee9921/83099878-3a0f-46a8-bb3b-939fa95b8692/2026-10-09T10%3A42%3A49Z-77d296da-12be-43c9-b6f9-c73040591bb8.txt?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=www-production%40exponentjs.iam.gserviceaccount.com%2F20261009%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20261009T113548Z&X-Goog-Expires=900&X-Goog-SignedHeaders=host&X-Goog-Signature=61f100fb0174cd2b413425b704c38e147ca126d1e8dd3a5edc95dd1d655421f5506b52d8c5b32fa51359a738b705bfeb958f34eaf0a36cf3cfc89ac6e9f0848ea5cc5f38b17c44a639bd108c2117c110d1c3ad66b5c9414b43ba9be89fda17f3de8c6f852a55a9187765fe72118e6978d14bb18b4c838d281d006589dd4f43a2da1d573ee0fdd8bfc6f4ad16ded8c0e7dd36be3e039cf34c476697471233ce286f1a825461f51eb9fff66e011d11af5f4e0a7875249de67bb57b8d1e8fcda9ab1a5a2b720e1316106497de5cc85a4c6574c7385c62fc85022dab4c6a99efdab6cbbc1c9f9285be30412f7dce3e4dd412dd653d6ceb659fbbf796858e07a42bde"
+  ],
+  "app": {
+    "id": "3c9ac6f5-b96c-41e5-a24f-21bb04ee9921",
+    "name": "revuptime",
+    "slug": "revuptime",
+    "ownerAccount": {
+      "id": "b4ef9424-a9f9-4701-bfdf-ae4fd098db59",
+      "name": "bahu007"
+    }
+  },
+  "distribution": "INTERNAL",
+  "buildProfile": "preview",
+  "appIdentifier": "com.revuptime.mobile",
+  "sdkVersion": "55.0.0",
+  "appVersion": "1.0.0",
+  "appBuildVersion": "1",
+  "priority": "NORMAL_PLUS",
+  "createdAt": "2026-10-09T10:42:44.666Z",
+  "updatedAt": "2026-10-09T10:55:26.456Z",
+  "completedAt": "2026-10-09T10:55:26.268Z",
+  "expirationDate": "2026-10-23T10:42:44.727Z",
+  "isForIosSimulator": false,
+  "metrics": {
+    "buildWaitTime": 3514,
+    "buildQueueTime": 5311,
+    "buildDuration": 752777
+  }
+}

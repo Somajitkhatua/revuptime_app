@@ -1,0 +1,1 @@
+alter policy rv_mobile_file_insert on storage.objects with check (bucket_id in ('asset-documents','work-order-photos') and exists(select 1 from public.assets a where a.organization_id::text=split_part(storage.objects.name,'/',1) and a.id::text=split_part(storage.objects.name,'/',2) and revuptime_private.can_write(a.organization_id)));

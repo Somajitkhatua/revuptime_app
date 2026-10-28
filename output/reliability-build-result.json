@@ -1,0 +1,12 @@
+{
+  "id": "e8dbf287-0e61-4245-9b97-c4db84c2dc19",
+  "status": "FINISHED",
+  "appVersion": "1.0.9",
+  "appBuildVersion": "10",
+  "completedAt": "2026-10-22T05:30:37.336Z",
+  "artifacts": {
+    "buildUrl": "https://expo.dev/artifacts/eas/L8ELtyEDKcBO_xE-peBGCQu-DyxCXI8jfQ6dhJEeXcg.apk",
+    "applicationArchiveUrl": "https://expo.dev/artifacts/eas/L8ELtyEDKcBO_xE-peBGCQu-DyxCXI8jfQ6dhJEeXcg.apk"
+  },
+  "buildPage": "https://expo.dev/accounts/bahu007/projects/revuptime/builds/e8dbf287-0e61-4245-9b97-c4db84c2dc19"
+}

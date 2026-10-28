@@ -1,0 +1,10 @@
+{
+  "verified": true,
+  "kind": "synthetic-provider-check",
+  "attemptedModels": [
+    "nvidia/nemotron-3-super-120b-a12b:free",
+    "nvidia/nemotron-3-ultra-550b-a55b:free"
+  ],
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "content": "A vibration sensor measures the **frequency, amplitude, and direction of oscillating motion** (displacement, velocity, or acceleration) of an object or structure."
+}

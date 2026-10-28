@@ -1,0 +1,37 @@
+[
+  {
+    "id": "e8dbf287-0e61-4245-9b97-c4db84c2dc19",
+    "status": "NEW",
+    "platform": "ANDROID",
+    "artifacts": {},
+    "fingerprint": {
+      "id": "01a16210-696b-7cec-997b-63836bee8076",
+      "hash": "33148ee9fe394f0a3e488a055707960439a51925"
+    },
+    "initiatingActor": {
+      "id": "d2ae2eb0-5eec-43cb-a9ec-675dfc15a69c",
+      "displayName": "bahu007"
+    },
+    "logFiles": [],
+    "app": {
+      "id": "3c9ac6f5-b96c-41e5-a24f-21bb04ee9921",
+      "name": "revuptime",
+      "slug": "revuptime",
+      "ownerAccount": {
+        "id": "b4ef9424-a9f9-4701-bfdf-ae4fd098db59",
+        "name": "bahu007"
+      }
+    },
+    "distribution": "INTERNAL",
+    "buildProfile": "preview",
+    "appIdentifier": "com.revuptime.mobile",
+    "sdkVersion": "55.0.0",
+    "appVersion": "1.0.9",
+    "appBuildVersion": "10",
+    "priority": "NORMAL",
+    "createdAt": "2026-10-22T05:23:25.095Z",
+    "updatedAt": "2026-10-22T05:23:25.095Z",
+    "expirationDate": "2026-11-05T05:23:25.148Z",
+    "isForIosSimulator": false
+  }
+]

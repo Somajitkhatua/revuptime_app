@@ -1,0 +1,16 @@
+{
+  "checkedOn": "2026-10-07",
+  "typecheck": "passed",
+  "demoDomainTests": "2 passed",
+  "browserJourneyTests": "2 passed",
+  "localPostgresSchema": "passed: tenant isolation, Viewer access, atomic closure",
+  "exports": [
+    "web",
+    "ios Hermes",
+    "android Hermes"
+  ],
+  "preview": "http://localhost:8082",
+  "liveSupabase": "not configured or deployed",
+  "physicalDevices": "not tested",
+  "dependencyAudit": "35 advisories; see npm-audit.json and release notes"
+}

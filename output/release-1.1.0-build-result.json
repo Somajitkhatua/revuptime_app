@@ -1,0 +1,16 @@
+{
+  "id": "3ebab63c-6ae7-4a8b-a302-08304bb5cdcc",
+  "status": "FINISHED",
+  "appVersion": "1.1.0",
+  "appBuildVersion": "11",
+  "appIdentifier": "com.revuptime.mobile",
+  "buildProfile": "preview",
+  "distribution": "INTERNAL",
+  "createdAt": "2026-10-27T07:13:36.120Z",
+  "completedAt": "2026-10-27T07:20:37.375Z",
+  "artifacts": {
+    "buildUrl": "https://expo.dev/artifacts/eas/2fk8wURgxtiQl36DJSjfEFoClOx0A7e9zWTwKpZZyRY.apk",
+    "applicationArchiveUrl": "https://expo.dev/artifacts/eas/2fk8wURgxtiQl36DJSjfEFoClOx0A7e9zWTwKpZZyRY.apk"
+  },
+  "buildPage": "https://expo.dev/accounts/bahu007/projects/revuptime/builds/3ebab63c-6ae7-4a8b-a302-08304bb5cdcc"
+}
