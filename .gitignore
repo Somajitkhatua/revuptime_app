@@ -20,3 +20,4 @@ credentials.json
 *.jks
 *.keystore
 output/upload_certificate.pem
+output/RevUpTime-1.1.0.apk
