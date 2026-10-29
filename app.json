@@ -17,7 +17,7 @@
         "foregroundImage": "./assets/branding/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.revuptime.mobile",
+      "package": "com.revuptime.app",
       "permissions": [
         "android.permission.CAMERA"
       ],

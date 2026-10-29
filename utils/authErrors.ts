@@ -3,6 +3,9 @@ export function authError(error: {
   status?: number;
   message?: string;
 }) {
+  const message = error.message || "";
+  if (/invalid login credentials|invalid credentials|email or password/i.test(message))
+    return new Error("Check your email and password, then try again.");
   if (
     error.code === "over_email_send_rate_limit" ||
     error.code === "over_request_rate_limit" ||
@@ -20,6 +23,6 @@ export function authError(error: {
       "Verify your email before signing in. Check your inbox or request a new verification email.",
     );
   return new Error(
-    error.message || "Unable to complete authentication. Please try again.",
+    message || "Unable to sign in. Please try again.",
   );
 }

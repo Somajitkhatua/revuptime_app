@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="500" viewBox="0 0 1024 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07172f"/><stop offset="0.56" stop-color="#0b2850"/><stop offset="1" stop-color="#061229"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#167ff0" stop-opacity=".38"/><stop offset="1" stop-color="#167ff0" stop-opacity="0"/></radialGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#eaf3ff"/><stop offset=".45" stop-color="#aebfd4"/><stop offset="1" stop-color="#526a87"/></linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#55b4ff"/><stop offset="1" stop-color="#0875ed"/></linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#163862"/><stop offset="1" stop-color="#0c2343"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#00091a" flood-opacity=".44"/></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="22"/></filter>
+  </defs>
+  <rect width="1024" height="500" fill="url(#bg)"/>
+  <ellipse cx="800" cy="255" rx="325" ry="255" fill="url(#glow)"/>
+  <path d="M0 405 C230 345 330 490 520 412 S810 320 1024 380" fill="none" stroke="#218cff" stroke-opacity=".09" stroke-width="2"/>
+  <path d="M505 0 L1024 0 L1024 500 L755 500 Z" fill="#0e2b51" opacity=".32"/>
+  <path d="M640 40 L1008 40 M670 57 L1018 57 M720 443 L1010 443" stroke="#76bfff" stroke-opacity=".13" stroke-width="1"/>
+  <g opacity=".55" fill="none" stroke="#45a5ff" stroke-width="1.5">
+    <path d="M570 105 H706 Q727 105 740 123 L763 154"/><path d="M570 384 H689 Q715 384 735 364 L760 337"/>
+    <circle cx="570" cy="105" r="4" fill="#55b4ff"/><circle cx="570" cy="384" r="4" fill="#55b4ff"/>
+  </g>
+  <!-- Brand mark and wordmark -->
+  <circle cx="75" cy="76" r="31" fill="#f7fbff"/>
+  <image x="52" y="53" width="46" height="46" preserveAspectRatio="xMidYMid meet" xlink:href="../assets/branding/launcher-mark.png"/>
+  <text x="119" y="86" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" letter-spacing="-1.1"><tspan fill="#f5f9ff">Rev</tspan><tspan fill="#3c9eff">Up</tspan><tspan fill="#f5f9ff">Time</tspan></text>
+  <text x="60" y="196" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="700" letter-spacing="-1.3" fill="#ffffff">Know your assets.</text>
+  <text x="60" y="247" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="700" letter-spacing="-1.3" fill="#ffffff">Keep work moving.</text>
+  <rect x="62" y="279" width="54" height="4" rx="2" fill="url(#blue)"/>
+  <text x="60" y="325" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#c5d5e9">Monitor equipment, sensor readings</text>
+  <text x="60" y="352" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#c5d5e9">and maintenance from anywhere.</text>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#b8d8fa">
+    <rect x="60" y="397" width="106" height="32" rx="16" fill="#ffffff" fill-opacity=".08" stroke="#78b9f5" stroke-opacity=".25"/><text x="80" y="418">ASSETS</text>
+    <rect x="176" y="397" width="102" height="32" rx="16" fill="#ffffff" fill-opacity=".08" stroke="#78b9f5" stroke-opacity=".25"/><text x="197" y="418">ALERTS</text>
+    <rect x="288" y="397" width="151" height="32" rx="16" fill="#ffffff" fill-opacity=".08" stroke="#78b9f5" stroke-opacity=".25"/><text x="307" y="418">MAINTENANCE</text>
+  </g>
+  <!-- Stylized industrial pump and motor -->
+  <g filter="url(#shadow)" transform="translate(0 1)">
+    <!-- mounting base -->
+    <path d="M636 393 H965 L943 416 H658 Z" fill="#536b88"/>
+    <path d="M652 415 H954 V428 H652 Z" fill="#283f5c"/>
+    <!-- motor body -->
+    <rect x="688" y="221" width="186" height="153" rx="24" fill="url(#steel)"/>
+    <path d="M706 235 H847 Q862 235 862 250 V345 Q862 360 847 360 H706 Q699 360 699 352 V243 Q699 235 706 235Z" fill="#dbe7f5" opacity=".64"/>
+    <!-- cooling ribs -->
+    <g stroke="#7188a5" stroke-width="6" stroke-linecap="round" opacity=".78">
+      <path d="M727 247 V349 M746 244 V352 M765 244 V352 M784 244 V352 M803 244 V352 M822 247 V349"/>
+    </g>
+    <rect x="676" y="262" width="22" height="75" rx="7" fill="#8094ae"/>
+    <rect x="867" y="260" width="29" height="77" rx="8" fill="#7890ac"/>
+    <!-- motor feet -->
+    <path d="M716 369 H750 L744 396 H709 Z M820 369 H851 L861 396 H826 Z" fill="#8fa4bd"/>
+    <!-- shaft and coupling -->
+    <rect x="893" y="285" width="40" height="28" rx="7" fill="#aebfd4"/>
+    <rect x="927" y="277" width="16" height="44" rx="5" fill="#6e829c"/>
+    <!-- pump volute -->
+    <path d="M948 261 C976 264 990 284 990 307 C990 336 970 354 944 355 L931 338 L944 322 C955 319 959 313 959 305 C959 297 955 291 945 288 L933 275 Z" fill="url(#blue)"/>
+    <circle cx="970" cy="306" r="10" fill="#dff2ff" opacity=".85"/>
+    <path d="M973 316 V369 H944" fill="none" stroke="#42a4ff" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M953 369 V385" stroke="#42a4ff" stroke-width="13" stroke-linecap="round"/>
+    <!-- top sensor module -->
+    <path d="M766 218 V195 Q766 184 777 184 H819 Q830 184 830 195 V218" fill="#7189a6"/>
+    <rect x="773" y="170" width="52" height="24" rx="8" fill="#f5f9ff"/>
+    <circle cx="799" cy="182" r="5" fill="#20c887"/>
+    <!-- indicator lights -->
+    <circle cx="851" cy="247" r="5" fill="#2ccf95"/>
+    <circle cx="851" cy="265" r="5" fill="#6fb6ff"/>
+  </g>
+  <!-- Floating sensor signal card -->
+  <g filter="url(#shadow)">
+    <rect x="557" y="145" width="125" height="69" rx="14" fill="url(#panel)" stroke="#8acaff" stroke-opacity=".38"/>
+    <circle cx="578" cy="168" r="6" fill="#32d49a"/>
+    <text x="593" y="172" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" letter-spacing=".7" fill="#d7eaff">DEVICE</text>
+    <path d="M574 193 H588 L596 182 L605 199 L614 188 L623 193 H663" fill="none" stroke="#55b4ff" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <!-- Abstract data trend card -->
+  <g filter="url(#shadow)">
+    <rect x="860" y="91" width="124" height="81" rx="14" fill="url(#panel)" stroke="#8acaff" stroke-opacity=".34"/>
+    <text x="875" y="111" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="700" letter-spacing=".9" fill="#bfd5ef">SENSOR TREND</text>
+    <path d="M876 150 L892 143 L905 148 L919 128 L934 136 L949 119 L968 126" fill="none" stroke="#52adff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M876 154 H969" stroke="#88b8e5" stroke-opacity=".25"/>
+    <circle cx="949" cy="119" r="3.5" fill="#e9f6ff"/>
+  </g>
+  <!-- subtle floor plane -->
+  <path d="M582 430 H1000" stroke="#6da9e2" stroke-opacity=".22"/>
+  <path d="M620 448 H974 M665 466 H936" stroke="#6da9e2" stroke-opacity=".12"/>
+</svg>

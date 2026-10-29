@@ -31,10 +31,19 @@ export default function Login() {
     [error, setError] = useState<string | null>(null),
     [focused, setFocused] = useState<"email" | "password" | null>(null);
   const { enterDemo, authError } = useApp();
-  const { height } = useWindowDimensions();
+  const { height, width } = useWindowDimensions();
   const compact = height < 720;
   async function submit() {
+    if (busy) return;
     setError(null);
+    if (!/^\S+@\S+\.\S+$/.test(email.trim())) {
+      setError("Enter a valid email address.");
+      return;
+    }
+    if (!password) {
+      setError("Enter your password.");
+      return;
+    }
     if (isDemo) {
       setBusy(true);
       try {
@@ -47,10 +56,6 @@ export default function Login() {
       }
       return;
     }
-    if (!/^\S+@\S+\.\S+$/.test(email.trim()) || !password) {
-      setError("Enter a valid email and password.");
-      return;
-    }
     setBusy(true);
     try {
       await signIn(email.trim(), password, remember);
@@ -58,14 +63,6 @@ export default function Login() {
       setError((e as Error).message);
     } finally {
       setBusy(false);
-    }
-  }
-  async function exploreDemo() {
-    try {
-      await enterDemo();
-      router.replace("/(tabs)/dashboard");
-    } catch (e) {
-      setError((e as Error).message);
     }
   }
   return (
@@ -95,13 +92,14 @@ export default function Login() {
             s.scroll,
             {
               minHeight: height,
-              paddingTop: compact ? 40 : Math.min(100, height * 0.114),
+              paddingTop: compact ? 24 : Math.min(76, height * 0.095),
+              paddingHorizontal: width < 380 ? 22 : 32,
             },
           ]}
         >
           <View style={s.content}>
             <View style={s.brand}>
-              <RevUpTimeLogo size={compact ? 68 : 84} />
+              <RevUpTimeLogo size={compact ? 60 : 72} />
               <Text accessibilityRole="header" style={s.wordmark}>
                 Rev<Text style={s.blue}>Up</Text>Time
               </Text>
@@ -110,72 +108,75 @@ export default function Login() {
                 Assets
               </Text>
             </View>
-            <View style={[s.form, { marginTop: compact ? 38 : 74 }]}>
-              <TextInput
-                accessibilityLabel="Email address"
-                value={email}
-                onChangeText={setEmail}
-                keyboardType="email-address"
-                autoCapitalize="none"
-                autoCorrect={false}
-                autoComplete="email"
-                placeholder="name@company.com"
-                placeholderTextColor="#34475D"
-                onFocus={() => setFocused("email")}
-                onBlur={() => setFocused(null)}
-                style={[s.input, focused === "email" && s.focused]}
-              />
-              <View
-                style={[s.passwordField, focused === "password" && s.focused]}
-              >
+            <View style={[s.form, { marginTop: compact ? 30 : 46 }]}>
+              <Text style={s.formTitle}>Welcome back</Text>
+              <Text style={s.formSubtitle}>Sign in to continue to your workspace.</Text>
+              <View style={s.fieldGroup}>
+                <Text style={s.fieldLabel}>Email address</Text>
                 <TextInput
-                  accessibilityLabel="Password"
-                  value={password}
-                  onChangeText={setPassword}
-                  onSubmitEditing={submit}
-                  returnKeyType="go"
-                  secureTextEntry={!show}
+                  accessibilityLabel="Email address"
+                  value={email}
+                  onChangeText={setEmail}
+                  keyboardType="email-address"
                   autoCapitalize="none"
                   autoCorrect={false}
-                  autoComplete="current-password"
-                  placeholder="••••••••"
-                  placeholderTextColor="#0F1E3A"
-                  onFocus={() => setFocused("password")}
+                  autoComplete="email"
+                  placeholder="name@company.com"
+                  placeholderTextColor="#718096"
+                  onFocus={() => setFocused("email")}
                   onBlur={() => setFocused(null)}
-                  style={s.passwordInput}
+                  style={[s.input, focused === "email" && s.focused]}
                 />
-                <Pressable
-                  accessibilityRole="button"
-                  accessibilityLabel={show ? "Hide password" : "Show password"}
-                  onPress={() => setShow(!show)}
-                  hitSlop={8}
-                  style={s.eye}
+              </View>
+              <View style={s.fieldGroup}>
+                <Text style={s.fieldLabel}>Password</Text>
+                <View
+                  style={[s.passwordField, focused === "password" && s.focused]}
                 >
-                  <Icon
-                    name={show ? "eye-off" : "eye"}
-                    size={19}
-                    color="#34475D"
+                  <TextInput
+                    accessibilityLabel="Password"
+                    value={password}
+                    onChangeText={setPassword}
+                    onSubmitEditing={submit}
+                    returnKeyType="go"
+                    secureTextEntry={!show}
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    autoComplete="current-password"
+                    placeholder="Enter your password"
+                    placeholderTextColor="#718096"
+                    onFocus={() => setFocused("password")}
+                    onBlur={() => setFocused(null)}
+                    style={s.passwordInput}
                   />
-                </Pressable>
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={show ? "Hide password" : "Show password"}
+                    onPress={() => setShow(!show)}
+                    hitSlop={8}
+                    style={s.eye}
+                  >
+                    <Icon
+                      name={show ? "eye-off" : "eye"}
+                      size={19}
+                      color="#52657A"
+                    />
+                  </Pressable>
+                </View>
               </View>
               <Pressable
                 accessibilityRole="checkbox"
                 accessibilityLabel="Remember me"
                 accessibilityState={{ checked: remember }}
-                onPress={() => setRemember(!remember)}
-                style={s.remember}
+                onPress={() => setRemember((value) => !value)}
+                style={s.rememberRow}
                 hitSlop={6}
               >
-                <View style={[s.checkbox, !remember && s.unchecked]}>
+                <View style={[s.checkbox, remember && s.checkboxChecked]}>
                   {remember && <Icon name="check" color="white" size={13} />}
                 </View>
                 <Text style={s.rememberText}>Remember me</Text>
               </Pressable>
-              {isDemo && (
-                <Text style={s.demoNotice}>
-                  Demo mode · Sign In opens the sample workspace.
-                </Text>
-              )}
               {(error || authError) && (
                 <Text accessibilityRole="alert" style={s.error}>
                   {userError(error || authError)}
@@ -184,6 +185,7 @@ export default function Login() {
               <Pressable
                 accessibilityRole="button"
                 accessibilityLabel="Sign In"
+                accessibilityState={{ disabled: busy }}
                 disabled={busy}
                 onPress={submit}
                 style={({ pressed }) => [
@@ -192,43 +194,15 @@ export default function Login() {
                 ]}
               >
                 {busy ? (
-                  <ActivityIndicator color="white" />
+                  <View style={s.loadingButtonContent}>
+                    <ActivityIndicator color="white" size="small" />
+                    <Text style={s.signInText}>Signing in…</Text>
+                  </View>
                 ) : (
                   <Text style={s.signInText}>Sign In</Text>
                 )}
               </Pressable>
-              <Pressable
-                accessibilityRole="link"
-                onPress={() => router.push("/forgot-password")}
-                style={s.forgot}
-              >
-                <Text style={s.forgotText}>Forgot Password?</Text>
-              </Pressable>
-              {!isDemo && (
-                <Pressable
-                  accessibilityRole="link"
-                  onPress={() => router.push("/register")}
-                  style={s.forgot}
-                >
-                  <Text style={s.forgotText}>
-                    New to RevUpTime? Create account
-                  </Text>
-                </Pressable>
-              )}
             </View>
-            {isDemo && (
-              <Pressable
-                accessibilityRole="button"
-                accessibilityLabel="Explore demo workspace"
-                onPress={exploreDemo}
-                style={s.demo}
-              >
-                <Text style={s.demoText}>
-                  Explore demo workspace{" "}
-                  <Text style={{ color: "#5BB8EE" }}>→</Text>
-                </Text>
-              </Pressable>
-            )}
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
@@ -241,13 +215,13 @@ const s = StyleSheet.create({
   scroll: {
     flexGrow: 1,
     alignItems: "center",
-    paddingHorizontal: 30,
+    justifyContent: "center",
     paddingBottom: 36,
   },
-  content: { width: "100%", maxWidth: 330 },
+  content: { width: "100%", maxWidth: 380 },
   brand: { alignItems: "center" },
   wordmark: {
-    fontSize: 40,
+    fontSize: 36,
     lineHeight: 48,
     fontWeight: "800",
     color: "white",
@@ -267,24 +241,83 @@ const s = StyleSheet.create({
     textShadowOffset: { width: 0, height: 1 },
     textShadowRadius: 5,
   },
-  form: { width: "100%" },
+  form: {
+    width: "100%",
+    padding: 24,
+    borderRadius: 22,
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.18)",
+    backgroundColor: "rgba(0,18,34,0.78)",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 14 },
+    shadowOpacity: 0.28,
+    shadowRadius: 28,
+    elevation: 12,
+  },
+  formTitle: {
+    color: "white",
+    fontSize: 22,
+    lineHeight: 28,
+    fontWeight: "700",
+    marginBottom: 4,
+  },
+  formSubtitle: {
+    color: "#AFC3D5",
+    fontSize: 13,
+    lineHeight: 19,
+    marginBottom: 24,
+  },
+  fieldGroup: { marginBottom: 18 },
+  fieldLabel: {
+    color: "#E8F2FB",
+    fontSize: 13,
+    fontWeight: "600",
+    marginBottom: 8,
+  },
+  rememberRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    alignSelf: "flex-start",
+    gap: 10,
+    minHeight: 32,
+    marginTop: -4,
+    marginBottom: 16,
+    paddingVertical: 4,
+  },
+  checkbox: {
+    width: 19,
+    height: 19,
+    borderRadius: 5,
+    borderWidth: 1.5,
+    borderColor: "#AFC3D5",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  checkboxChecked: {
+    borderColor: "#1388F5",
+    backgroundColor: "#1388F5",
+  },
+  rememberText: {
+    color: "#E8F2FB",
+    fontSize: 13,
+    fontWeight: "500",
+  },
   input: {
     width: "100%",
-    height: 54,
+    height: 52,
     borderWidth: 1,
     borderColor: "#DBE2E9",
-    borderRadius: 10,
+    borderRadius: 11,
     backgroundColor: "#FFF",
     paddingHorizontal: 16,
     color: "#0F1E3A",
-    fontSize: 14,
-    marginBottom: 14,
+    fontSize: 15,
   },
   passwordField: {
     flexDirection: "row",
     alignItems: "center",
-    height: 54,
-    borderRadius: 10,
+    height: 52,
+    borderRadius: 11,
     borderWidth: 1,
     borderColor: "#DBE2E9",
     backgroundColor: "#FFF",
@@ -293,50 +326,27 @@ const s = StyleSheet.create({
     flex: 1,
     height: "100%",
     paddingHorizontal: 16,
-    fontSize: 16,
+    fontSize: 15,
     color: "#0F1E3A",
-    letterSpacing: 2,
+    letterSpacing: 0,
   },
   eye: {
     width: 48,
-    height: 50,
+    height: 48,
     alignItems: "center",
     justifyContent: "center",
   },
-  focused: { borderColor: "#1B96FF", borderWidth: 2 },
-  remember: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 9,
-    alignSelf: "flex-start",
-    marginTop: 17,
-    marginBottom: 27,
-    minHeight: 24,
+  focused: { borderColor: "#168DF0", borderWidth: 2 },
+  error: {
+    color: "#FFD0D5",
+    fontSize: 12,
+    lineHeight: 18,
+    marginBottom: 14,
   },
-  checkbox: {
-    width: 18,
-    height: 18,
-    borderRadius: 4,
-    backgroundColor: "#0085FF",
-    borderWidth: 1,
-    borderColor: "#1B96FF",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  unchecked: { backgroundColor: "transparent", borderColor: "#B6C5D5" },
-  rememberText: { color: "white", fontSize: 13 },
-  demoNotice: {
-    color: "#D4E5F5",
-    fontSize: 11,
-    lineHeight: 17,
-    marginBottom: 12,
-    textAlign: "center",
-  },
-  error: { color: "#FFB2BC", fontSize: 12, lineHeight: 18, marginBottom: 14 },
   signIn: {
     width: "100%",
-    height: 54,
-    borderRadius: 10,
+    height: 52,
+    borderRadius: 11,
     backgroundColor: "#0085FF",
     alignItems: "center",
     justifyContent: "center",
@@ -348,8 +358,10 @@ const s = StyleSheet.create({
     shadowRadius: 16,
   },
   signInText: { color: "white", fontSize: 15, fontWeight: "700" },
-  forgot: { alignSelf: "center", padding: 14, marginTop: 10 },
-  forgotText: { color: "white", fontSize: 13 },
-  demo: { alignSelf: "center", padding: 12, marginTop: 48 },
-  demoText: { color: "#BBCCDD", fontSize: 11 },
+  loadingButtonContent: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 10,
+  },
 });

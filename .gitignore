@@ -13,3 +13,10 @@ output/eas-user-config/
 
 expo-env.d.ts
 # @end expo-cli
+
+# EAS Android signing credentials
+credentials/
+credentials.json
+*.jks
+*.keystore
+output/upload_certificate.pem

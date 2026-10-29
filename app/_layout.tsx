@@ -18,7 +18,9 @@ function Navigation() {
   useEffect(() => {
     if (loading) return;
     const publicRoute = [
+      "",
       "login",
+      "welcome",
       "forgot-password",
       "register",
       "verify-email",

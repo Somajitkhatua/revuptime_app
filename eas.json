@@ -21,11 +21,16 @@
       "extends": "preview",
       "distribution": "store",
       "environment": "production",
-      "android": { "buildType": "app-bundle" },
+      "android": {
+        "buildType": "app-bundle"
+      },
       "autoIncrement": true
     }
   },
   "submit": {
     "production": {}
+  },
+  "cli": {
+    "appVersionSource": "remote"
   }
 }
